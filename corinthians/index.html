@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Corinthians</title>
+</head>
+<body>
+    <div class="header" id="header">
+        <button onclick="tooglesidebar()" class="btn_icon_header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </button>
+        <div class="logo_header">
+            <img src="logo_sccp.png" class="img_sccp_header" alt="Logo Sccp">
+        </div>
+        <div class="nav_header" id="nav_header">
+            <button onclick="tooglesidebar()" class="btn_icon_header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                  </svg>
+            </button>
+            <a href="#">Home</a>
+            <a href="#">Títulos</a>
+            <a href="#">Sobre</a>
+        </div>
+    </div>
+    <div  tabindex="0" onclick="closesidebar()" class="content" id="content">
+        <h1>SCCP - CORINTHIANS</h1>
+    </div>
+    <div class="img_content" id="img_content">
+        <picture class="img_content">
+            <source media="(max-width: 800px)" srcset="img_cp_p.jpg">
+            <img src="img_cp.jpg" tabindex="0" onclick="closesidebar()" class="img_sccp_content" alt="Img Sccp">
+        </picture>
+    </div>
+</body>
+ <script>
+    var header = document.getElementById('header');
+    var navheader = document.getElementById('nav_header');
+    var content = document.getElementById('content');
+    var imgcontent = document.getElementById('img_content');
+    var showsidebar = false;
+
+
+    function tooglesidebar()
+    {
+        showsidebar = !showsidebar;
+        if(showsidebar)
+        {
+            navheader.style.marginLeft = '-10vw';
+            navheader.style.animationName = 'showsidebar';
+            content.style.filter = 'blur(2px)';
+            imgcontent.style.filter = 'blur(2px)';
+        }
+        else
+        {
+            navheader.style.marginLeft = '-100vw';
+            navheader.style.animationName = '';
+            content.style.filter = '';
+            imgcontent.style.filter = '';
+            imgsccp.style.filter = '';
+        }
+    }
+    function closesidebar()
+    {
+        if(showsidebar)
+        {
+          tooglesidebar();
+        }
+    }
+
+    window.addEventListener('resize', function(event) {
+        if(window.innerWidth > 768 && showsidebar)
+        {
+            tooglesidebar();
+        }
+    });    
+ </script>
+</html>
